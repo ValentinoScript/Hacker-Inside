@@ -76,8 +76,8 @@ IF %commande% EQU reset goto rest
 IF %commande% EQU test_wifi set /p ipwifi= entrer une adresse ip: 
 IF %commande% EQU test_wifi goto wifitest
 IF %commande% EQU crack goto chforce
-IF %commande% EQU bitcoin python "C:\Hacker Inside\Python\bitcoin wallet.py"
-IF %commande% EQU crypteur python "C:\Hacker Inside\Python\chiffreur.py"
+IF %commande% EQU bitcoin python "C:\Hacker Inside\bitcoin wallet.py"
+IF %commande% EQU crypteur python "C:\Hacker Inside\chiffreur.py"
 goto COMMANDE
 :randomm
 echo %random%-%random%-%random%-%random%-%random%-%random%
