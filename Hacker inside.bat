@@ -50,7 +50,6 @@ IF NOT EXIST "C:\Hacker Inside\data\" goto installation
 
 set /p uttilisateur= entrer le nom d'uttilisateur :
 set /p motdepasse= entrer le mot de passe :
-color 04
 cd C:\Hacker Inside\data\user\
 IF EXIST "C:\Hacker Inside\data\user\%uttilisateur%\%motdepasse%" echo mot de passe correcte
 IF EXIST "C:\Hacker Inside\data\user\%uttilisateur%\%motdepasse%" goto COMMANDE
