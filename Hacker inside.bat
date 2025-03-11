@@ -51,8 +51,9 @@ IF NOT EXIST "C:\Hacker Inside\data\" goto installation
 set /p uttilisateur= entrer le nom d'uttilisateur :
 set /p motdepasse= entrer le mot de passe :
 cd C:\Hacker Inside\data\user\
+IF %uttilisateur% EQU goto nn
+IF %motdepasse% EQU goto nn
 IF EXIST "C:\Hacker Inside\data\user\%uttilisateur%\%motdepasse%" echo mot de passe correcte
-IF EXIST "C:\Hacker Inside\data\user\%uttilisateur%\%motdepasse%" echo tapez help pour afficher tout les commandes
 IF EXIST "C:\Hacker Inside\data\user\%uttilisateur%\%motdepasse%" goto COMMANDE
 IF NOT EXIST "C:\Hacker Inside\data\user\%uttilisateur%\%mot de passe%" echo utilisateur / mot de passe incorrecte
 IF NOT EXIST "C:\Hacker Inside\data\user\%uttilisateur%\%mot de passe%" goto nn
@@ -71,7 +72,7 @@ set /p commande= entrer une commande:
 
 IF %commande% EQU DDoS set /p adresse= entrer une adresse ip: 
 IF %commande% EQU DDoS goto confddos
-IF %commande% EQU help goto helpeur
+
 IF %commande% EQU meteo goto prev
 IF %commande% EQU reset goto rest
 IF %commande% EQU test_wifi set /p ipwifi= entrer une adresse ip: 
@@ -84,15 +85,7 @@ goto COMMANDE
 echo %random%-%random%-%random%-%random%-%random%-%random%
 goto randomm
 
-:helpeur
-echo ------------------------------------------------------------------------------------------------------------------------------------------------
-echo Liste des commandes
-echo crack: Permet de cracker le mot de passe de l'utilisateur de votre choix avec un dicionnaire de mot de passe
-echo DDoS: Permet de lançer une attaque DDoS à une adresse ip de votre choix
-echo crypteur: permet de crypter du texte avec une méthode de chiffrement et le mot de passe de votre choix (César, xor, AES (fernet), AES (ces))
-echo bitcoin: lançe une application pour gérer vos wallet bitcoin
-echo ------------------------------------------------------------------------------------------------------------------------------------------------
-goto COMMANDE
+
 
 
 :resetd
