@@ -46,18 +46,36 @@ echo ValentinoScript Hacker Console [7.5]
 echo by Valentino
 :connection
 IF NOT EXIST "C:\Hacker Inside\data\" goto installation
-
-
+IF NOT EXIST "config.txt" goto keychecker
+IF EXIST "config.txt" python "C:\Hacker Inside\Key Checker Start.py"
+IF %ERRORLEVEL% NEQ 0 (
+    python "C:\Hacker Inside\Key Checker.py"
+)
 set /p uttilisateur= entrer le nom d'uttilisateur :
 set /p motdepasse= entrer le mot de passe :
 cd C:\Hacker Inside\data\user\
 IF %uttilisateur% EQU goto nn
 IF %motdepasse% EQU goto nn
 IF EXIST "C:\Hacker Inside\data\user\%uttilisateur%\%motdepasse%" echo mot de passe correcte
-IF EXIST "C:\Hacker Inside\data\user\%uttilisateur%\%motdepasse%" goto COMMANDE
+IF EXIST "C:\Hacker Inside\data\user\%uttilisateur%\%motdepasse%" goto passwordclear
 IF NOT EXIST "C:\Hacker Inside\data\user\%uttilisateur%\%mot de passe%" echo utilisateur / mot de passe incorrecte
 IF NOT EXIST "C:\Hacker Inside\data\user\%uttilisateur%\%mot de passe%" goto nn
 goto nn
+
+:passwordclear
+cls
+echo ValentinoScript Hacker Console [7.5]
+echo by Valentino
+echo entrer le nom d'uttilisateur: %uttilisateur%
+echo entrer le mot de passe: ************
+goto COMMANDE
+
+
+
+
+
+
+
 
 :cache
 cls
@@ -301,6 +319,11 @@ IF %cho% EQU o goto installp
 IF %cho% EQU n goto :nn
 
 :installp
+echo en installant l'application, vous acceptez les termes de la licence Mozilla Public License Version 2.0
+set /p "cho=>"
+IF %cho% NEQ O IF %cho% NEQ o goto nn
+IF %cho% EQU N goto nn
+IF %cho% EQU n goto nn
 python
 echo appyuez sur un touche quand vous avez terminé d'installer python
 timeout 1
@@ -335,3 +358,7 @@ goto nnfin
 :nnfin
 
 goto nnfin
+
+:keychecker
+python "C:\Hacker Inside\Key Checker.py"
+goto connection
