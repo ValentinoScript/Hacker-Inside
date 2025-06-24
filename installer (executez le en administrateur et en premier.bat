@@ -15,6 +15,7 @@ IF %cho% EQU O echo appuyez sur une touche quand vous avez installé python
 IF %cho% EQU o echo appuyez sur une touche quand vous avez installé python
 IF %cho% EQU O timeout 20
 IF %cho% EQU o timeout 20
+pip install pywin32
 python "Logo Creator.py"
 echo Installation terminé, vous pouvez fermer cette fenettre
 goto fin
