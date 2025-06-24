@@ -335,6 +335,7 @@ pip install pycryptodome
 pip install qrcode[pil]
 pip install bitcoinlib
 pip install requests
+pip install mnemonic
 set /p user= choisissez un nom d'utilisateur: 
 echo choisissez un mot de passe, Ne l'utilisez pas autre part
 set /p "password=>
