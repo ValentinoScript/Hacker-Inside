@@ -46,11 +46,7 @@ echo ValentinoScript Hacker Console [7.5]
 echo by Valentino
 :connection
 IF NOT EXIST "C:\Hacker Inside\data\" goto installation
-IF NOT EXIST "config.txt" goto keychecker
-IF EXIST "config.txt" python "C:\Hacker Inside\Key Checker Start.py"
-IF %ERRORLEVEL% NEQ 0 (
-    python "C:\Hacker Inside\Key Checker.py"
-)
+
 set /p uttilisateur= entrer le nom d'uttilisateur :
 set /p motdepasse= entrer le mot de passe :
 cd C:\Hacker Inside\data\user\
@@ -96,7 +92,7 @@ IF %commande% EQU reset goto rest
 IF %commande% EQU test_wifi set /p ipwifi= entrer une adresse ip: 
 IF %commande% EQU test_wifi goto wifitest
 IF %commande% EQU crack goto chforce
-IF %commande% EQU bitcoin python "C:\Hacker Inside\bitcoin wallet.py"
+IF %commande% EQU bitcoin_testnet python "C:\Hacker Inside\Wallet_test3.py"
 IF %commande% EQU crypteur python "C:\Hacker Inside\chiffreur.py"
 goto COMMANDE
 :randomm
