@@ -11,6 +11,8 @@ echo python est nécéssaire au fonctionnement de l'application, voulez-vous l'i
 set /p "cho=>"
 IF %cho% EQU O python
 IF %cho% EQU o python
+echo appuyez sur une touche quand vous avez installé python
+timeout 1
 python "Logo Creator.py"
 echo Installation terminé, vous pouvez fermer cette fenettre
 goto fin
