@@ -310,12 +310,12 @@ cd C:\Hacker Inside\
 echo Le compileur Python est nécéssère au fonctionnement de l'application. Voulez-vous l'installer ? (O/N) (vous êtes obligé)
 set /p "cho=>"
 IF %cho% EQU O goto installp
-IF %cho% EQU N goto :nn
+IF %cho% EQU N goto installconfirm
 IF %cho% EQU o goto installp
-IF %cho% EQU n goto :nn
+IF %cho% EQU n goto :installconfirm
 
 :installp
-echo en installant l'application, vous acceptez les termes de la licence Mozilla Public License Version 2.0
+echo en installant l'application, vous acceptez les termes de la licence Mozilla Public License Version 2.0 (O/N)
 set /p "cho=>"
 IF %cho% NEQ O IF %cho% NEQ o goto nn
 IF %cho% EQU N goto nn
@@ -323,7 +323,7 @@ IF %cho% EQU n goto nn
 python
 echo appyuez sur un touche quand vous avez terminé d'installer python
 timeout 1
-echo cette apllication nécéssite le module cryptography, pycryptodome, qrcode[pil], bitcoinlib. Voulez-vous l'installer ?? (O/N) (vous êtes également obligé)
+echo cette apllication nécéssite le module cryptography, pycryptodome, qrcode[pil], bitcoinlib. Voulez-vous l'installer ? (O/N) (vous êtes également obligé)
 set /p "cho=>"
 IF %cho% EQU O goto installconfirm
 IF %cho% EQU N goto nn
@@ -334,8 +334,9 @@ pip install cryptography
 pip install pycryptodome
 pip install qrcode[pil]
 pip install bitcoinlib
+pip install requests
 set /p user= choisissez un nom d'utilisateur: 
-echo choisissez un mot de passe, IL NE DOIT PAS ETRE UTILISE AUTRE PART ET DOIT ETRE SUPER ULTRA MEGA FORT !!!!!!
+echo choisissez un mot de passe, Ne l'utilisez pas autre part
 set /p "password=>
 cd C:\Hacker Inside\
 md data
